@@ -1,0 +1,150 @@
+{
+  "image_dimensions": {
+    "width": 512,
+    "height": 512
+  },
+  "layers": [
+    {
+      "material": "silicon",
+      "y_start": 332,
+      "y_end": 512,
+      "thickness": 180,
+      "layer_index": 0
+    },
+    {
+      "material": "aluminum",
+      "y_start": 323,
+      "y_end": 332,
+      "thickness": 9,
+      "layer_index": 1
+    }
+  ],
+  "etching_patterns": [],
+  "material_colors": {
+    "silicon": {
+      "rgb": [
+        128,
+        128,
+        128
+      ],
+      "name": "Gray",
+      "hex": "#808080",
+      "description": "Silicon substrate - appears as gray"
+    },
+    "sio2": {
+      "rgb": [
+        0,
+        100,
+        200
+      ],
+      "name": "Blue",
+      "hex": "#0064C8",
+      "description": "Silicon dioxide (oxide) - appears as blue"
+    },
+    "si3n4": {
+      "rgb": [
+        0,
+        150,
+        0
+      ],
+      "name": "Green",
+      "hex": "#009600",
+      "description": "Silicon nitride - appears as green"
+    },
+    "titanium": {
+      "rgb": [
+        255,
+        140,
+        0
+      ],
+      "name": "Orange",
+      "hex": "#FF8C00",
+      "description": "Titanium - appears as orange"
+    },
+    "copper": {
+      "rgb": [
+        139,
+        69,
+        19
+      ],
+      "name": "Brown",
+      "hex": "#8B4513",
+      "description": "Copper - appears as brown"
+    },
+    "gold": {
+      "rgb": [
+        255,
+        215,
+        0
+      ],
+      "name": "Yellow",
+      "hex": "#FFD700",
+      "description": "Gold - appears as yellow"
+    },
+    "aluminum": {
+      "rgb": [
+        169,
+        169,
+        169
+      ],
+      "name": "Dark Gray",
+      "hex": "#A9A9A9",
+      "description": "Aluminum - appears as dark gray"
+    },
+    "empty": {
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "name": "White",
+      "hex": "#FFFFFF",
+      "description": "Empty space/etched areas - appears as white"
+    }
+  },
+  "material_ids": {
+    "silicon": 1,
+    "sio2": 2,
+    "si3n4": 3,
+    "titanium": 4,
+    "copper": 5,
+    "gold": 6,
+    "aluminum": 7,
+    "empty": 0
+  },
+  "statistics": {
+    "silicon": {
+      "pixel_count": 92160,
+      "percentage": 35.16
+    },
+    "sio2": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "si3n4": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "titanium": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "copper": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "gold": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "aluminum": {
+      "pixel_count": 4608,
+      "percentage": 1.76
+    },
+    "empty": {
+      "pixel_count": 165376,
+      "percentage": 63.09
+    }
+  },
+  "sample_name": "wafer_00970"
+}

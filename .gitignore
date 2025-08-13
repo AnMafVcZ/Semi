@@ -37,7 +37,6 @@ runs/
 *.onnx
 
 # Generated data (optional - remove if you want to include)
-wafer_training_data/
 wafer_yolo_dataset/
 wafer_lightweight/
 

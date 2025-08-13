@@ -1,0 +1,207 @@
+{
+  "image_dimensions": {
+    "width": 512,
+    "height": 512
+  },
+  "layers": [
+    {
+      "material": "silicon",
+      "y_start": 298,
+      "y_end": 512,
+      "thickness": 214,
+      "layer_index": 0
+    },
+    {
+      "material": "aluminum",
+      "y_start": 286,
+      "y_end": 298,
+      "thickness": 12,
+      "layer_index": 1
+    }
+  ],
+  "etching_patterns": [
+    {
+      "type": "trapezoidal",
+      "coordinates": {
+        "x_center": 203,
+        "y_start": 286,
+        "y_end": 298
+      },
+      "dimensions": {
+        "top_width": 85,
+        "bottom_width": 37,
+        "height": 12
+      },
+      "etch_id": 0
+    },
+    {
+      "type": "trapezoidal",
+      "coordinates": {
+        "x_center": 316,
+        "y_start": 286,
+        "y_end": 298
+      },
+      "dimensions": {
+        "top_width": 55,
+        "bottom_width": 44,
+        "height": 12
+      },
+      "etch_id": 1
+    },
+    {
+      "type": "trapezoidal",
+      "coordinates": {
+        "x_center": 437,
+        "y_start": 286,
+        "y_end": 298
+      },
+      "dimensions": {
+        "top_width": 33,
+        "bottom_width": 26,
+        "height": 12
+      },
+      "etch_id": 2
+    },
+    {
+      "type": "trapezoidal",
+      "coordinates": {
+        "x_center": 412,
+        "y_start": 286,
+        "y_end": 298
+      },
+      "dimensions": {
+        "top_width": 92,
+        "bottom_width": 89,
+        "height": 12
+      },
+      "etch_id": 3
+    }
+  ],
+  "material_colors": {
+    "silicon": {
+      "rgb": [
+        128,
+        128,
+        128
+      ],
+      "name": "Gray",
+      "hex": "#808080",
+      "description": "Silicon substrate - appears as gray"
+    },
+    "sio2": {
+      "rgb": [
+        0,
+        100,
+        200
+      ],
+      "name": "Blue",
+      "hex": "#0064C8",
+      "description": "Silicon dioxide (oxide) - appears as blue"
+    },
+    "si3n4": {
+      "rgb": [
+        0,
+        150,
+        0
+      ],
+      "name": "Green",
+      "hex": "#009600",
+      "description": "Silicon nitride - appears as green"
+    },
+    "titanium": {
+      "rgb": [
+        255,
+        140,
+        0
+      ],
+      "name": "Orange",
+      "hex": "#FF8C00",
+      "description": "Titanium - appears as orange"
+    },
+    "copper": {
+      "rgb": [
+        139,
+        69,
+        19
+      ],
+      "name": "Brown",
+      "hex": "#8B4513",
+      "description": "Copper - appears as brown"
+    },
+    "gold": {
+      "rgb": [
+        255,
+        215,
+        0
+      ],
+      "name": "Yellow",
+      "hex": "#FFD700",
+      "description": "Gold - appears as yellow"
+    },
+    "aluminum": {
+      "rgb": [
+        169,
+        169,
+        169
+      ],
+      "name": "Dark Gray",
+      "hex": "#A9A9A9",
+      "description": "Aluminum - appears as dark gray"
+    },
+    "empty": {
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "name": "White",
+      "hex": "#FFFFFF",
+      "description": "Empty space/etched areas - appears as white"
+    }
+  },
+  "material_ids": {
+    "silicon": 1,
+    "sio2": 2,
+    "si3n4": 3,
+    "titanium": 4,
+    "copper": 5,
+    "gold": 6,
+    "aluminum": 7,
+    "empty": 0
+  },
+  "statistics": {
+    "silicon": {
+      "pixel_count": 109568,
+      "percentage": 41.8
+    },
+    "sio2": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "si3n4": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "titanium": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "copper": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "gold": {
+      "pixel_count": 0,
+      "percentage": 0.0
+    },
+    "aluminum": {
+      "pixel_count": 3736,
+      "percentage": 1.43
+    },
+    "empty": {
+      "pixel_count": 148840,
+      "percentage": 56.78
+    }
+  },
+  "sample_name": "wafer_00838"
+}
