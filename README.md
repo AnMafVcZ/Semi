@@ -1,32 +1,24 @@
-# Wafer Analysis Project
+# Semiconductor Wafer Image Generation
 
-A comprehensive system for generating synthetic wafer cross-section images and training YOLO object detection models to analyze semiconductor wafer structures.
+A Python system for generating synthetic wafer cross-section images with realistic semiconductor layers and etching patterns.
 
 ## 🎯 Project Overview
 
-This project successfully:
-- ✅ Generates synthetic wafer cross-section images with realistic semiconductor layers
-- ✅ Creates YOLO-compatible datasets with proper annotations
-- ✅ Trains YOLO models to detect 9 different wafer components
-- ✅ Achieves 83.2% mAP50 accuracy on validation data
-- ✅ Provides tools for testing and analyzing custom wafer images
+This project generates synthetic wafer cross-section images for:
+- **Research and development** of semiconductor analysis tools
+- **Training data creation** for machine learning models
+- **Educational purposes** for understanding wafer structures
+- **Testing and validation** of image processing algorithms
 
 ## 📁 Project Structure
 
 ```
 Semi/
 ├── image_generation.py          # Synthetic wafer image generator
-├── yolo.py                      # YOLO dataset converter and trainer
-├── lightweight_training.py      # Lightweight training script
-├── test_predictions.py          # Test model on sample images
-├── test_custom_image.py         # Test model on custom images
-├── analyze_custom_image.py      # Detailed analysis with visualization
 ├── requirements.txt             # Python dependencies
 ├── README.md                   # This file
 ├── wafer_training_data/        # Generated training dataset
-├── wafer_yolo_dataset/         # YOLO-formatted dataset
-├── wafer_lightweight/          # Training results and models
-└── wafer_analysis_project/     # Additional training experiments
+└── .venv/                     # Virtual environment
 ```
 
 ## 🚀 Quick Start
@@ -57,7 +49,7 @@ pip install -r requirements.txt
 - Use backslashes `\` for paths on Windows
 - If you get "execution policy" errors, run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
-### 2. Generate Training Data
+### 2. Generate Wafer Images
 
 #### **macOS/Linux:**
 ```bash
@@ -67,44 +59,6 @@ python3 image_generation.py
 #### **Windows:**
 ```cmd
 python image_generation.py
-```
-
-### 3. Train YOLO Model
-
-#### **macOS/Linux:**
-```bash
-python3 lightweight_training.py
-```
-
-#### **Windows:**
-```cmd
-python lightweight_training.py
-```
-
-### 4. Test the Model
-
-#### **macOS/Linux:**
-```bash
-# Test on sample images
-python3 test_predictions.py
-
-# Test on custom image
-python3 test_custom_image.py your_image.jpg
-
-# Detailed analysis with visualization
-python3 analyze_custom_image.py your_image.jpg
-```
-
-#### **Windows:**
-```cmd
-# Test on sample images
-python test_predictions.py
-
-# Test on custom image
-python test_custom_image.py your_image.jpg
-
-# Detailed analysis with visualization
-python analyze_custom_image.py your_image.jpg
 ```
 
 ## 🎨 Generated Data Features
@@ -123,47 +77,10 @@ python analyze_custom_image.py your_image.jpg
 - **Test set**: 100 images
 - **Total**: 1000 synthetic wafer images
 
-## 🤖 YOLO Model Performance
-
-### Model Architecture
-- **Model**: YOLOv8n (nano version)
-- **Parameters**: 3M parameters
-- **Training time**: ~1.75 hours on CPU
-- **Inference speed**: ~20ms per image
-
-### Detection Classes (9 total)
-1. **aluminum** - Aluminum layers
-2. **copper** - Copper layers
-3. **gold** - Gold layers
-4. **rectangular_etch** - Rectangular etching patterns
-5. **si3n4** - Silicon nitride layers
-6. **silicon** - Silicon substrate
-7. **sio2** - Silicon dioxide layers
-8. **titanium** - Titanium layers
-9. **trapezoidal_etch** - Trapezoidal etching patterns
-
-### Performance Metrics
-- **mAP50**: 0.832 (83.2%)
-- **mAP50-95**: 0.668 (66.8%)
-- **Average confidence**: 0.578
-- **High confidence detections**: >0.8 threshold
-
-## 📊 Test Results
-
-### Sample Test Images
-The model successfully detects:
-- **Material layers** with high confidence (76-99%)
-- **Etching patterns** (rectangular and trapezoidal)
-- **Complex wafer structures** with multiple layers
-- **22 objects** in complex custom images
-
-### Custom Image Analysis
-Recent test on custom image showed:
-- **22 detected objects**
-- **8 material layers** (Al, Cu, Si, SiO2, Si3N4)
-- **14 etching patterns** (6 rectangular, 8 trapezoidal)
-- **Average confidence**: 57.8%
-- **High confidence detections**: 5 objects (>80%)
+### Output Files
+- **Images**: PNG format wafer cross-sections
+- **Masks**: Binary masks for each material layer
+- **Metadata**: JSON files with layer information and material colors
 
 ## 🛠️ Key Scripts
 
@@ -173,34 +90,7 @@ Generates synthetic wafer cross-section images with:
 - Realistic material colors
 - Etching pattern generation
 - Metadata export for training
-
-### `yolo.py`
-Complete YOLO workflow including:
-- Dataset conversion to YOLO format
-- Model training with augmentation
-- Validation and testing
-- Multiple experiment support
-
-### `lightweight_training.py`
-Optimized training script with:
-- Smaller model (YOLOv8n)
-- Reduced epochs (50)
-- CPU-friendly settings
-- Faster training time
-
-### `test_predictions.py`
-Comprehensive testing with:
-- Sample image testing
-- Confidence analysis
-- Visualization
-- Statistics reporting
-
-### `analyze_custom_image.py`
-Detailed analysis with:
-- Side-by-side visualization
-- Confidence statistics
-- Class distribution analysis
-- Wafer structure breakdown
+- Visualization tools
 
 ## 🎯 Usage Examples
 
@@ -212,42 +102,25 @@ generator = WaferDataGenerator()
 generator.generate_dataset(num_samples=1000)
 ```
 
-### Train YOLO Model
+### Customize Generation Parameters
 ```python
-from yolo import WaferYOLOTrainer
+from image_generation import WaferDataGenerator
 
-trainer = WaferYOLOTrainer()
-results = trainer.train_model(epochs=100)
+generator = WaferDataGenerator(
+    image_size=(512, 512),
+    etching_probability=0.9,
+    max_layers=8
+)
+generator.generate_dataset(num_samples=500)
 ```
 
-### Test Custom Image
-
-#### **macOS/Linux:**
+### Visualize Sample Images
 ```python
-from ultralytics import YOLO
+from image_generation import WaferDataGenerator
 
-model = YOLO("wafer_lightweight/experiment_1/weights/best.pt")
-results = model.predict("your_image.jpg", conf=0.25)
+generator = WaferDataGenerator()
+generator.visualize_sample(wafer_id=0)  # Show first generated wafer
 ```
-
-#### **Windows:**
-```python
-from ultralytics import YOLO
-
-model = YOLO("wafer_lightweight\\experiment_1\\weights\\best.pt")
-results = model.predict("your_image.jpg", conf=0.25)
-```
-
-## 📈 Model Files
-
-### Trained Models
-- **Best model**: `wafer_lightweight/experiment_1/weights/best.pt`
-- **Last checkpoint**: `wafer_lightweight/experiment_1/weights/last.pt`
-
-### Training Results
-- **Metrics**: `wafer_lightweight/experiment_1/results.csv`
-- **Plots**: `wafer_lightweight/experiment_1/results.png`
-- **Confusion matrix**: `wafer_lightweight/experiment_1/confusion_matrix.png`
 
 ## 🔧 Configuration
 
@@ -261,30 +134,78 @@ Each material has distinct RGB colors for easy identification:
 - **Gold**: Yellow (255, 215, 0)
 - **Aluminum**: Dark Gray (105, 105, 105)
 
-### Training Parameters
-- **Model**: YOLOv8n (nano)
-- **Epochs**: 50 (lightweight) / 100 (full)
-- **Batch size**: 8 (lightweight) / 16 (full)
-- **Image size**: 416x416 (lightweight) / 640x640 (full)
-- **Learning rate**: 0.01
-- **Optimizer**: AdamW
+### Generation Parameters
+- **Image size**: 512x512 pixels
+- **Max layers**: 8 per wafer
+- **Etching probability**: 90%
+- **Etch types**: Rectangular and trapezoidal
+- **Layer thickness**: 10-50 pixels
+- **Etch depth**: 10-30 pixels
+
+## 📊 Output Structure
+
+### Generated Files
+```
+wafer_training_data/
+├── images/
+│   ├── wafer_00000.png
+│   ├── wafer_00001.png
+│   └── ...
+├── masks/
+│   ├── wafer_00000_mask.png
+│   ├── wafer_00001_mask.png
+│   └── ...
+└── metadata/
+    ├── wafer_00000.json
+    ├── wafer_00001.json
+    └── ...
+```
+
+### Metadata Format
+```json
+{
+  "wafer_id": "wafer_00000",
+  "image_size": [512, 512],
+  "layers": [
+    {
+      "material": "silicon",
+      "y_start": 341,
+      "y_end": 512,
+      "color": [70, 130, 180]
+    }
+  ],
+  "etching_patterns": [
+    {
+      "type": "rectangular",
+      "x_start": 98,
+      "x_end": 183,
+      "y_start": 285,
+      "y_end": 307
+    }
+  ],
+  "material_colors": {
+    "silicon": {"rgb": [70, 130, 180], "name": "Steel Blue"},
+    "copper": {"rgb": [139, 69, 19], "name": "Saddle Brown"}
+  }
+}
+```
 
 ## 🎉 Success Metrics
 
 ✅ **Synthetic data generation**: 1000 realistic wafer images  
-✅ **Dataset conversion**: YOLO-compatible format  
-✅ **Model training**: Successful completion  
-✅ **Performance**: 83.2% mAP50 accuracy  
-✅ **Testing**: Works on custom images  
-✅ **Visualization**: Detailed analysis tools  
+✅ **Material variety**: 7 different semiconductor materials  
+✅ **Etching patterns**: Rectangular and trapezoidal shapes  
+✅ **Clean interfaces**: No surface roughness  
+✅ **Metadata export**: Complete layer and color information  
+✅ **Visualization tools**: Sample image display  
 
 ## 🚀 Next Steps
 
-1. **Deploy model** for production use
-2. **Fine-tune** on real wafer images
-3. **Extend classes** for more materials
-4. **Optimize** for edge devices
-5. **Create API** for web interface
+1. **Extend materials** for more semiconductor types
+2. **Add more etching patterns** (circular vias, complex shapes)
+3. **Include surface roughness** as optional feature
+4. **Create web interface** for interactive generation
+5. **Add 3D wafer generation** capabilities
 
 ## 🔧 Troubleshooting
 
@@ -305,7 +226,6 @@ If `python` command is not recognized:
 #### **Path Issues:**
 - Use backslashes `\` for Windows paths
 - Use forward slashes `/` for Python code paths
-- Example: `wafer_lightweight\experiment_1\weights\best.pt`
 
 #### **Visualization Issues:**
 If matplotlib doesn't display plots on Windows:
@@ -320,18 +240,18 @@ matplotlib.use('Agg')  # For non-interactive plotting
 
 ### **General Issues:**
 
-#### **CUDA/GPU Issues:**
-- The model works on CPU (slower but functional)
-- For GPU acceleration, install CUDA toolkit
-- Check GPU compatibility with PyTorch
-
 #### **Memory Issues:**
-- Reduce batch size in training scripts
-- Use smaller model (YOLOv8n instead of YOLOv8s)
-- Close other applications during training
+- Reduce `num_samples` for large datasets
+- Close other applications during generation
+- Use smaller image sizes if needed
+
+#### **Import Errors:**
+- Ensure virtual environment is activated
+- Reinstall requirements: `pip install -r requirements.txt`
+- Check Python version compatibility
 
 ---
 
-**Project Status**: ✅ Complete and Functional  
+**Project Status**: ✅ Image Generation Complete  
 **Last Updated**: December 2024  
-**Model Performance**: Excellent (83.2% mAP50) 
+**Generated Images**: 1000+ synthetic wafer cross-sections 

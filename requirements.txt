@@ -1,41 +1,14 @@
-# Semiconductor Process Analysis Pipeline Requirements
-# Core dependencies for the complete pipeline
+# Semiconductor Wafer Image Generation Requirements
+# Core dependencies for synthetic wafer cross-section generation
 
-# Computer Vision and Image Processing
+# Image Processing and Visualization
 opencv-python>=4.8.0
 Pillow>=10.0.0
 numpy>=1.24.0
-
-# Machine Learning and Deep Learning
-torch>=2.0.0
-torchvision>=0.15.0
-ultralytics>=8.0.0
-
-# Data Visualization
 matplotlib>=3.7.0
-graphviz>=0.20.0
-networkx>=3.1.0
 
-# HTTP and API Communication
-requests>=2.31.0
-
-# Data Processing and Analysis
+# Data Processing
 pandas>=2.0.0
-scikit-learn>=1.3.0
 
 # File and Data Handling
-pathlib2>=2.3.0
-python-dateutil>=2.8.0
-
-# Optional: For advanced visualization (if needed)
-# plotly>=5.15.0
-# seaborn>=0.12.0
-
-# Optional: For PDF generation (if needed)
-# reportlab>=4.0.0
-# fpdf>=2.7.0
-
-# Development and Testing (optional)
-# pytest>=7.4.0
-# black>=23.0.0
-# flake8>=6.0.0 
+pathlib2>=2.3.0 
