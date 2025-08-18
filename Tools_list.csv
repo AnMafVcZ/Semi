@@ -1,0 +1,25 @@
+Category,Tool Name,Use Case / Capabilities,Operation Temperatures,Pressure Ranges,Specs / Parameters,Materials / Substrates,Currently Active
+Lithography,MJB3 Mask Aligner (A),Topside alignment,N/A (soft/hard/vacuum contact modes),N/A,"UV 400 nm (350–450 nm), 350 W Hg Arc lamp, eyepieces 10x/15x, objectives 3.2x/5x/10x/20x/25x, resolution 0.8 μm, exposure modes soft/hard/vacuum","Substrates up to 3"", mask 3""/4""",Yes
+Lithography,MJB3 Mask Aligner (B),Top/backside alignment,N/A,N/A,Same as above,"Substrates up to 3"", mask 3""/4""",Yes
+Lithography,MJB4 Mask Aligner,Topside alignment,N/A,N/A,"UV 400 nm (350–450 nm), eyepieces 10x, objectives 5x/10x/20x, resolution 0.8 μm","Substrates up to 2"", mask 3""/4""/5""",Yes
+Lithography,MA/BA Gen4,Top/backside alignment,N/A,N/A,"Wafer up to 150 mm, substrates down to 5×5 mm, masks 4""x4""–7""x7"", LED 450 W, UV 400 nm, resolution 0.8 µm, objectives 5×/10×",Wafers up to 150 mm,Yes
+Lithography,Raith EBPG5150 E-beam,High-res e-beam writing,N/A,"Vacuum (~10^-6 Torr, typical)","50–100 kV thermal FE, writing 155 mm, beam current up to 350 nA, min feature < 10 nm","Substrates up to 6""",Yes
+Lithography,Heidelberg DWL 66+,Direct laser writing,N/A,N/A,"405 nm laser, resolution 10 nm, align modes manual/semi/full-auto, grayscale exposures, three write modes (0.3 µm, 2 µm, 4 µm), backside alignment","Substrates 5×5 mm²–9""x9""",Yes
+Etching,Oxford Pro 80 RIE,Reactive ion etching,Up to 400 °C (electrode),~15 mTorr typical,"RF power up to 600 W, gases Ar/O₂/CHF₃/CF₄/SF₆/C₄F₈/N₂, open loading","Si, SiO₂, Si₃N₄; substrates up to 200 mm",Yes
+Etching,Oxford Plasma Lab 100 ICP,Bosch Si process,Up to 400 °C (electrode),N/A,"O₂/Ar/CF₄/C₄F₈/SF₆/CHF₃, load lock, ICP 3000 W, RF 500 W, He backside cooling","Wafers up to 6"" (4"" clamp)",Yes
+Etching,XeF₂ Isotropic Etcher,Isotropic Si etching,N/A,N/A,"N₂ carrier, solid XeF₂ pulsed etching","Si, up to 6"" wafer",Yes
+Etching,Oxford Plasma Pro 100 Cobra 180,III-V etching,−30 °C to 400 °C,N/A,"ICP 1500 W, RF 300 W, load lock, He backside cooling, gases H₂/N₂/O₂/Ar/SF₆/CH₄/Cl₂/BCl₃/SiCl₄","Substrates 2""/3""/4""",Yes
+Deposition,Oxford Pro 100 PECVD,Plasma-enhanced CVD,Up to 400 °C,N/A,"Gases 2% SiH₄/N₂, NH₃, N₂O, N₂, He, CF₄; RF 300 W, LR 500 W; deposits SiO₂, Si₃N₄, SiNO","Wafers up to 6""",Yes
+Deposition,Lesker PVD 75,PVD (sputter + e-beam),N/A,Vacuum (~10^-6 Torr),"E-beam evap (Ti, Au, Pt, Pd, Cr, Ni, Ag), sputter (Au, Pt, Ti, Al, W, Mo, Cu, SiO₂, Al₂O₃, ITO), DC 500 W, RF 300 W, substrate rotation","Wafers up to 6""",Yes
+Deposition,Veeco Thermal ALD Savannah S200,Atomic layer deposition,N/A,Low pressure (typical ALD),"Continuous/exposure, uniformity < 1% for Al₂O₃, precursors Pt/Ru, ozone generator",Wafers up to 200 mm,Yes
+Deposition,Angstrom E-beam Evaporator,E-beam deposition,N/A,Vacuum (~10^-6 Torr),"4 pockets, 10 kV, 25 cc, substrate rotation & heating, Ar/5% O₂ in Ar, load lock","Wafers up to 6"", Ti/Al/Al₂O₃",Yes
+Deposition,Temescal E-beam Evaporator,E-beam deposition,N/A,Vacuum (~10^-6 Torr),"4 pockets, 10 kV, 7 cc, substrate rotation","Wafers up to 6"", Ti/Au/Pt/Pd/Cr/Ni/Ag",Yes
+Deposition,CHA Electron Beam Evaporator,High-power e-beam deposition,N/A,Vacuum (~10^-6 Torr),"10 kW PSU, 6 pockets 15 cc, deposition shield & rotation, Inficon IC/6, 8 kW heater, PLC automation, lift-off fixture",Substrates 22×100 mm,Yes
+Processing,YES-CV200RFS Plasma Strip,Resist strip/ashing,Ambient–250 °C,N/A,"40 kHz RF 100–1000 W, single/dual wafer, real-time logging","Wafers 2""–200 mm",Yes
+Processing,AccuThermo AW 610M RTP,Rapid thermal processing,100 °C–1250 °C,N/A,"Ramp 10–120 °C/s, pyrometer ±1 °C (450–1250 °C), thermocouple ±0.5 °C (100–800 °C), uniformity ±5% across 6"", 4 gas lines","Wafers up to 6""",Yes
+Processing,Disco DAD 3350 Dicing Saw,Wafer/sample dicing,N/A,N/A,"Spindle 1.8 kW, speed 0.1–600 mm/s, precision 0.00005–0.001 mm","Wafers up to 8"", 250×250 mm samples",Yes
+Metrology,Bruker Dektak XT Profilometer,Step height profiling,N/A,N/A,"Motorized XY 150 mm, 3D scan, max thickness 50 mm, repeatability <5 Å, vertical resolution 1 Å, scan stitching",Various samples,Yes
+Metrology,SEM Phenom ProX,SEM imaging,N/A,Vacuum (~10^-6 Torr),"5–15 kV, resolution <10 nm, magnification 80–150,000×, tilt, EDS capability",Samples up to 32 mm,Yes
+Metrology,Nikon LV 150 Optical Microscope,Optical imaging,Ambient,N/A,"Objectives 5×/10×/20×/50×/100×, bright/darkfield, polarizer/analyzer, halogen lamp, 5.9 MP camera, USB/Wi-Fi",Various samples,Yes
+Metrology,JSM-6700F SEM,High-res SEM,N/A,Vacuum (~10^-6 Torr),"Field emission gun, SE/BSED detectors, Oxford Inca EDX, resolution 3.5 nm, current 10⁻¹²–10⁻⁶ A, 0.5–30 kV",Samples up to 125 mm,Yes
+Metrology,LATTICEAX 420 Scribe & Break,Precision cleaving,N/A,N/A,Cleaving accuracy 10 µm in <5 min,Various materials and sizes,Yes
