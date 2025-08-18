@@ -1,64 +1,3 @@
-# Semiconductor Fabrication Workflow (Gemini CLI)
-
-Turn this repository into a fabrication-workflow assistant driven by Gemini CLI. Provide a final device image and short design notes; Gemini will analyze the image, map colors to materials, and output a complete, tool-specific semiconductor fabrication workflow.
-
-## 🎯 What this repo is for
-
-- **Gemini-driven analysis**: Use Gemini CLI to infer a fabrication flow from a final device image.
-- **Tool-aware outputs**: Gemini must select only from the tools in `Tools_list.csv`.
-- **Color-to-material mapping**: `color_mapping.py` defines which colors correspond to which materials in images.
-- **Examples only**: `wafer_training_data/` provides example images and metadata for reference; it is not used for training here.
-
-## 📁 Project Structure
-
-```
-Semi/
-├── README.md
-├── Tools_list.csv                 # Catalog of available tools Gemini may choose from
-├── color_mapping.py               # Color→material legend for image interpretation
-├── prompt_fabrication_workflow.txt# Prompt given to Gemini CLI
-├── input_images/                  # Place your device images here (2D/3D)
-└── wafer_training_data/           # Example dataset for reference only
-```
-
-## 🚀 Quick Start (Gemini CLI)
-
-1) Install and authenticate the Gemini CLI following the vendor instructions.  
-2) Put your final device image(s) into `input_images/` (PNG/JPG/SVG/STEP as applicable).  
-3) Review or edit `Tools_list.csv` and `color_mapping.py` to match your lab and color legend.  
-4) Run Gemini with the prompt and the supporting files. Example (adjust flags to your CLI):
-
-```bash
-# Example invocation – adapt to your Gemini CLI syntax
-gemini run \
-  --model gemini-1.5-pro \
-  --prompt-file prompt_fabrication_workflow.txt \
-  --file Tools_list.csv \
-  --file color_mapping.py \
-  --input-dir input_images \
-  --output workflow.md
-```
-
-The output should be a numbered fabrication workflow, with explicit tool selections, material usage per step, and a visual diagram of the flow (as 2D cross-sections).
-
-## 🔑 Inputs Gemini will see
-
-- **Final device image(s)**: Place in `input_images/`.
-- **Tool list**: `Tools_list.csv` (full tool names, capabilities, constraints).
-- **Color mapping**: `color_mapping.py` (maps colors in the image to materials).
-- **Your notes**: Provide short textual inputs describing materials, stack, and device intent when you start the run.
-
-## 🧭 Roles of the key files
-
-- `Tools_list.csv`: Source of truth for allowed tools. Gemini must only choose from this list and honor capabilities (substrate size, gases, resolution, alignment, etc.).
-- `color_mapping.py`: Tells Gemini which RGB/hex colors correspond to materials (Si, SiO2, Si3N4, Ti, Cu, Au, Al, empty). Update if your color palette changes.
-- `wafer_training_data/`: Example images/labels/metadata used only as references for what typical wafers look like.
-
-## 🗒️ Prompt used by Gemini CLI
-
-Copy is also available in `prompt_fabrication_workflow.txt`.
-
-```
 Prompt: Semiconductor Fabrication Workflow Expert AI
 Role: You are a highly specialized AI agent in semiconductor nano-fabrication. Your expertise is in analyzing a provided image of a final semiconductor device and generating a complete, tool-specific fabrication workflow based solely on the user's input and the provided tool list.
 Objective: Given: A final device image (either 2D or 3D representation of the fabricated device) User inputs describing layer materials, structure, and desired device functionality A list of available fabrication tools with detailed specifications
@@ -75,20 +14,4 @@ Material Usage Specify all materials involved at every step, such as: Photoresis
 Workflow Visualization Generate a final visual diagram illustrating the key fabrication steps. The diagram should be a series of 2D cross-sectional schematics, showing the state of the wafer after each major process (e.g., after deposition, after lithography, after etch). Label the materials in each cross-section
 Constraints Do NOT include exact process parameters (no etch time, temperature, power, flow rates, ramp-up rates). Use only the tools listed below and ensure that the selected tools are compatible with the substrate size, materials, and resolution requirements. If multiple tools can achieve the same function, select the most appropriate tool based on: Substrate size capability Minimum feature size or resolution Material compatibility Alignment requirements (topside, backside, both) If the requested device structure, feature size, or material is impossible to create with the provided tool list, you must first state why it is impossible, referencing the specific tool limitations. Do not attempt to generate a flawed workflow. Ask the user for clarification or to modify their design.
 At the beginning of the response, provide a brief paragraph summarizing the overall fabrication strategy (e.g., 'This workflow uses a metal lift-off process for the contacts and a subtractive etch for the silicon fins...'). Briefly justify critical tool choices (e.g., 'E-beam lithography was selected for the gate definition due to the sub-100nm requirement').
-```
 
-## ✅ Output expectations
-
-- Numbered fabrication steps with process name, purpose, and fabricated layer/feature.
-- Tool selection per step drawn strictly from `Tools_list.csv`.
-- Material usage called out at every step with clear layer stack evolution.
-- A final visual diagram as 2D cross-sections labeling materials at each stage.
-
-## 📦 Legacy: Synthetic dataset (examples only)
-
-The original image generator and dataset remain for reference in `wafer_training_data/`. They can serve as examples of wafer imagery and material coloring but are not used directly by Gemini in this workflow.
-
----
-
-**Project Status**: ✅ Gemini CLI workflow ready  
-**Last Updated**: August 2025
