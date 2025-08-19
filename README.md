@@ -29,16 +29,15 @@ Semi/
 4. Run Gemini with the prompt and files:
 
 ```bash
-gemini run \
+gemini \
   --model gemini-1.5-pro \
-  --prompt-file prompt_fabrication_workflow.txt \
-  --file Tools_list.csv \
-  --file color_mapping.py \
-  --input-dir input_images \
-  --output workflow.md
+  --prompt "$(cat prompt_fabrication_workflow.txt)" \
+  --all-files
 ```
 
 You'll get back a numbered fabrication workflow with tool selections, materials, and a visual diagram.
+
+**Note**: Put your device images in the `input_images/` folder before running the command. Gemini will see all files in the workspace with `--all-files`.
 
 ## What Gemini sees
 
